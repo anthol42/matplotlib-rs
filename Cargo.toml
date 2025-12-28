@@ -1,0 +1,3 @@
+[workspace]
+members = ["kwargs_builder_derive", "matplotlib"]
+resolver = "2"
