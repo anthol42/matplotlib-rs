@@ -6,6 +6,8 @@ use syn::{parse_macro_input, DeriveInput, Data, Fields, Type};
 pub fn kwargs_builder_derive(input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as DeriveInput);
     let name = &input.ident;
+    let generics = &input.generics;
+    let (impl_generics, ty_generics, where_clause) = generics.split_for_impl();
 
     let fields = match &input.data {
         Data::Struct(data) => match &data.fields {
@@ -57,7 +59,7 @@ pub fn kwargs_builder_derive(input: TokenStream) -> TokenStream {
         .collect();
 
     let expanded = quote! {
-        impl #name {
+        impl #impl_generics #name #ty_generics #where_clause {
             #(#builder_methods)*
 
         pub fn get_kwargs<'py>(&self, py: pyo3::Python<'py>) -> pyo3::PyResult<pyo3::Bound<'py, pyo3::types::PyDict>> {
