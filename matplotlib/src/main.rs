@@ -1,9 +1,10 @@
 use matplotlib::pyplot as plt;
 use ndarray::arr1;
+use std::collections::HashMap;
 
 fn main() {
-    // Test here in the main thread - using 2x3 grid for more examples
-    let (_, axes) = plt::subplots(2, 3).set().unwrap();
+    // Test here in the main thread - using 3x3 grid for more examples
+    let (_, axes) = plt::subplots(3, 3).set().unwrap();
 
     // Plot example in top-left
     axes[(0,0)]
@@ -102,6 +103,66 @@ fn main() {
         .alpha(0.2)
         .color("red".to_string())
         .label("Confidence Band".to_string())
+        .set()
+        .unwrap();
+
+    // Bar chart example 1: Simple bar chart with custom styling
+    let categories = arr1(&[0.0, 1.0, 2.0, 3.0]);
+    let values = arr1(&[23.0, 45.0, 56.0, 34.0]);
+
+    axes[(2, 0)]
+        .bar(categories, values)
+        .width(0.6)         // Scalar width (automatic f64 conversion)
+        .color("skyblue".to_string())
+        .edgecolor("navy".to_string())
+        .linewidth(1.5)
+        .alpha(0.8)
+        .label("Sales Data".to_string())
+        .set()
+        .unwrap();
+
+    // Bar chart example 2: Stacked bars
+    let x_bar = arr1(&[0.0, 1.0, 2.0, 3.0, 4.0]);
+    let heights1 = arr1(&[5.0, 7.0, 3.0, 8.0, 6.0]);
+    let heights2 = arr1(&[3.0, 4.0, 6.0, 2.0, 5.0]);
+
+    axes[(2, 1)]
+        .bar(x_bar.clone(), heights1.clone())
+        .bottom(0.0)        // Scalar bottom
+        .color("lightgreen".to_string())
+        .label("Category A".to_string())
+        .set()
+        .unwrap();
+
+    axes[(2, 1)]
+        .bar(x_bar, heights2)
+        .bottom(heights1)   // Array bottom for stacking (automatic conversion)
+        .color("lightcoral".to_string())
+        .label("Category B".to_string())
+        .set()
+        .unwrap();
+
+    // Bar chart example 3: Bars with error bars and error_kw
+    let x_err = arr1(&[1.0, 2.0, 3.0, 4.0]);
+    let heights_err = arr1(&[20.0, 35.0, 30.0, 35.0]);
+    let y_errors = arr1(&[2.0, 3.0, 2.5, 3.5]);
+    let x_errors = arr1(&[0.1, 0.15, 0.1, 0.2]);
+
+    // Create error_kw HashMap with custom error bar styling
+    let mut error_styling = HashMap::new();
+    error_styling.insert("elinewidth".to_string(), 2.0.into());
+    error_styling.insert("capthick".to_string(), 2.0.into());
+
+    axes[(2, 2)]
+        .bar(x_err, heights_err)
+        .yerr(y_errors)     // Y error bars
+        .xerr(x_errors)     // X error bars
+        .ecolor("red".to_string())
+        .capsize(5.0)
+        .error_kw(error_styling)
+        .color("gold".to_string())
+        .edgecolor("orange".to_string())
+        .label("With Errors".to_string())
         .set()
         .unwrap();
 
