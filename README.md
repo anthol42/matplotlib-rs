@@ -1,33 +1,9 @@
 # Matplotlib Rust Wrapper
 It contains two matplotlibs API: `plt.plot` and `fig, axes = plt.subplots`
 
-## Generic parameters
-- `Line2D`:
-  - alpha
-  - antialiased
-  - color
-  - figure
-  - label
-  - linestyle
-  - linewidth
-  - marker
-  - markeredgecolor
-  - markeredgewidth
-  - markerfacecolor
-  - markerfacecoloralt
-  - markersize
-  - rasterized
-  - zorder
 
 ## Functions supported:
 - `plot`:
-Required:
-  - y
-  - y
-Optional:
-  - fmt
-  - scalex/scaley
-
 - `scatter`:
 - `hist`:
 - `imshow`:
@@ -36,8 +12,8 @@ Optional:
 - `axhline`
 - `axvline`
 - `text`
-- `suptitle`
 
+- `suptitle`
 - `set_axis`
 - `grid`
 - `set_xlim`
@@ -52,3 +28,6 @@ Optional:
 - `set_ytickslabels`
 - `sharex`
 - `sharey`
+
+- `savefig`
+- `tight_layout`
