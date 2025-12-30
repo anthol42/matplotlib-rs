@@ -1,4 +1,5 @@
 mod plot;
+mod scatter;
 
 use pyo3::{Py, PyAny};
 
