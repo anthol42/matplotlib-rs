@@ -1,5 +1,5 @@
 use matplotlib::pyplot as plt;
-use matplotlib::pyplot::axes::AxisOption;
+use matplotlib::pyplot::axes::{AxisOption, GridWhich, GridAxis};
 use ndarray::{arr1, Array2, Array3};
 use std::collections::HashMap;
 use matplotlib::pyplot::axes::AxisOption::Off;
@@ -34,6 +34,12 @@ fn main() {
         .linestyle("-.".to_string())
         .linewidth(2.0)
         .label("y=4".to_string())
+        .set()
+        .unwrap();
+
+    // Add basic grid to first plot
+    axes[(0,0)]
+        .grid()
         .set()
         .unwrap();
 
@@ -145,6 +151,15 @@ fn main() {
         .set()
         .unwrap();
 
+    // Add customized grid with styling
+    axes[(1, 1)]
+        .grid()
+        .color("gray".to_string())
+        .linestyle("--".to_string())
+        .alpha(0.5)
+        .set()
+        .unwrap();
+
     // Fill between example 2: Confidence band (fill from scalar y2=0)
     let x_conf = arr1(&[0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0]);
     let y_mean = arr1(&[1.0, 1.2, 1.8, 2.0, 2.5, 2.8, 3.2, 3.5, 4.0]);
@@ -190,6 +205,16 @@ fn main() {
         .rotation(45.0)
         .color("navy".to_string())
         .fontstyle("italic".to_string())
+        .set()
+        .unwrap();
+
+    // Add grid with which and axis options
+    axes[(2, 0)]
+        .grid()
+        .which(GridWhich::Major)
+        .axis(GridAxis::Y)
+        .color("lightgray".to_string())
+        .linestyle(":".to_string())
         .set()
         .unwrap();
 
