@@ -1,5 +1,5 @@
 use matplotlib::pyplot as plt;
-use matplotlib::pyplot::axes::{AxisOption, GridWhich, GridAxis, XLabelLoc, YLabelLoc};
+use matplotlib::pyplot::axes::{AxisOption, GridWhich, GridAxis, XLabelLoc, YLabelLoc, TitleLoc};
 use ndarray::{arr1, Array2, Array3};
 use std::collections::HashMap;
 use matplotlib::pyplot::axes::AxisOption::Off;
@@ -68,6 +68,14 @@ fn main() {
     axes[(0,0)]
         .set_ylabel("Y Values".to_string())
         .fontsize(10.0)
+        .fontweight("bold".to_string())
+        .set()
+        .unwrap();
+
+    // Add simple title
+    axes[(0,0)]
+        .set_title("Plot with Lines".to_string())
+        .fontsize(12.0)
         .fontweight("bold".to_string())
         .set()
         .unwrap();
@@ -204,6 +212,15 @@ fn main() {
         .set()
         .unwrap();
 
+    // Add styled title with color
+    axes[(1, 1)]
+        .set_title("Fill Between Example".to_string())
+        .fontsize(11.0)
+        .color("darkblue".to_string())
+        .fontstyle("italic".to_string())
+        .set()
+        .unwrap();
+
     // Fill between example 2: Confidence band (fill from scalar y2=0)
     let x_conf = arr1(&[0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0]);
     let y_mean = arr1(&[1.0, 1.2, 1.8, 2.0, 2.5, 2.8, 3.2, 3.5, 4.0]);
@@ -283,6 +300,17 @@ fn main() {
         .fontsize(11.0)
         .color("navy".to_string())
         .loc(YLabelLoc::Center)
+        .set()
+        .unwrap();
+
+    // Add positioned title with custom padding
+    axes[(2, 0)]
+        .set_title("Sales by Category".to_string())
+        .loc(TitleLoc::Left)
+        .fontsize(11.0)
+        .fontweight("bold".to_string())
+        .color("navy".to_string())
+        .pad(10.0)
         .set()
         .unwrap();
 

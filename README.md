@@ -13,21 +13,19 @@ It contains two matplotlibs API: `plt.plot` and `fig, axes = plt.subplots`
 - [X] `axvline`
 - [X] `text`
 
-- [ ] `suptitle`
 - [X] `axis`
 - [X] `grid`
 - [X] `set_xlim`
 - [X] `set_ylim`
 - [X] `set_xlabel`
 - [X] `set_ylabel`
-- [ ] `set_title`
+- [X] `set_title`
 - [ ] `legend`
 - [ ] `set_xticks`
 - [ ] `set_yticks`
-- [ ] `set_xtickslabels`
-- [ ] `set_ytickslabels`
 - [ ] `sharex`
 - [ ] `sharey`
 
+- [ ] `suptitle`
 - [ ] `savefig`
 - [ ] `tight_layout`

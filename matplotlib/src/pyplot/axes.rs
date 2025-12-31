@@ -13,6 +13,7 @@ mod set_xlim;
 mod set_ylim;
 mod set_xlabel;
 mod set_ylabel;
+mod set_title;
 
 use pyo3::{Py, PyAny};
 
@@ -23,6 +24,8 @@ pub use grid::{GridWhich, GridAxis};
 // Re-export XLabelLoc and YLabelLoc for user convenience
 pub use set_xlabel::XLabelLoc;
 pub use set_ylabel::YLabelLoc;
+// Re-export TitleLoc for user convenience
+pub use set_title::TitleLoc;
 
 pub struct Axes {
     pub inner: Py<PyAny>,
