@@ -2,6 +2,9 @@ mod plot;
 mod scatter;
 mod fill_between;
 mod bar;
+mod axvline;
+mod axhline;
+mod hist;
 
 use pyo3::{Py, PyAny};
 

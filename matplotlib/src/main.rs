@@ -3,15 +3,35 @@ use ndarray::arr1;
 use std::collections::HashMap;
 
 fn main() {
-    // Test here in the main thread - using 3x3 grid for more examples
-    let (_, axes) = plt::subplots(3, 3).set().unwrap();
+    // Test here in the main thread - using 4x3 grid for more examples
+    let (_, axes) = plt::subplots(4, 3).set().unwrap();
 
-    // Plot example in top-left
+    // Plot example in top-left with axvline and axhline
     axes[(0,0)]
         .plot(arr1(&[1.0, 2.0, 3.0]), arr1(&[1.0, 4.0, 9.0]))
         .color("blue".to_string())
         .marker("o".to_string())
         .label("Quadratic".to_string())
+        .set()
+        .unwrap();
+
+    // Add vertical line at x=2.0
+    axes[(0,0)]
+        .axvline(2.0)
+        .color("red".to_string())
+        .linestyle("--".to_string())
+        .linewidth(2.0)
+        .label("x=2".to_string())
+        .set()
+        .unwrap();
+
+    // Add horizontal line at y=4.0
+    axes[(0,0)]
+        .axhline(4.0)
+        .color("green".to_string())
+        .linestyle("-.".to_string())
+        .linewidth(2.0)
+        .label("y=4".to_string())
         .set()
         .unwrap();
 
@@ -36,7 +56,7 @@ fn main() {
         .set()
         .expect("Error here");
 
-    // Scatter example 2: Variable sizes and color mapping
+    // Scatter example 2: Variable sizes and color mapping with threshold lines
     let x = arr1(&[1.0, 2.0, 3.0, 4.0, 5.0, 6.0]);
     let y = arr1(&[3.0, 1.0, 4.0, 2.0, 5.0, 3.5]);
     let sizes = arr1(&[50.0, 100.0, 150.0, 200.0, 250.0, 300.0]);
@@ -51,6 +71,30 @@ fn main() {
         .edgecolors("black".to_string())
         .linewidths(1.5)
         .label("Variable Size & Color".to_string())
+        .set()
+        .unwrap();
+
+    // Add partial vertical line (middle 50% of height) at x=3.5
+    axes[(0, 2)]
+        .axvline(3.5)
+        .ymin(0.25)
+        .ymax(0.75)
+        .color("orange".to_string())
+        .linestyle(":".to_string())
+        .linewidth(3.0)
+        .alpha(0.7)
+        .set()
+        .unwrap();
+
+    // Add partial horizontal line (middle 60% of width) at y=3.0
+    axes[(0, 2)]
+        .axhline(3.0)
+        .xmin(0.2)
+        .xmax(0.8)
+        .color("purple".to_string())
+        .linestyle(":".to_string())
+        .linewidth(3.0)
+        .alpha(0.7)
         .set()
         .unwrap();
 
@@ -163,6 +207,61 @@ fn main() {
         .color("gold".to_string())
         .edgecolor("orange".to_string())
         .label("With Errors".to_string())
+        .set()
+        .unwrap();
+
+    // Histogram example 1: Simple histogram with bin count
+    let hist_data1 = arr1(&[
+        1.0, 1.5, 2.0, 2.2, 2.5, 2.8, 3.0, 3.2, 3.5, 3.8,
+        4.0, 4.1, 4.5, 4.8, 5.0, 5.2, 5.5, 5.8, 6.0, 6.5,
+        2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 1.8, 2.3, 3.7, 4.2,
+        5.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0
+    ]);
+
+    axes[(3, 0)]
+        .hist(hist_data1)
+        .bins(15)           // HistBins::Count (automatic i32 conversion)
+        .color("skyblue".to_string())
+        .edgecolor("navy".to_string())
+        .alpha(0.7)
+        .label("Distribution".to_string())
+        .set()
+        .unwrap();
+
+    // Histogram example 2: Histogram with explicit bin edges
+    let hist_data2 = arr1(&[
+        0.5, 1.2, 1.8, 2.1, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0,
+        5.5, 6.0, 6.5, 7.0, 8.0, 9.0, 10.0, 2.0, 3.0, 4.0,
+        1.0, 2.0, 3.0, 5.0, 7.0, 8.0, 1.5, 2.5, 4.5, 6.5
+    ]);
+    let bin_edges = arr1(&[0.0, 2.0, 4.0, 6.0, 8.0, 10.0]);
+
+    axes[(3, 1)]
+        .hist(hist_data2)
+        .bins(bin_edges)    // HistBins::Edges (automatic Array1<f64> conversion)
+        .color("lightcoral".to_string())
+        .edgecolor("darkred".to_string())
+        .linewidth(1.5)
+        .label("Custom Bins".to_string())
+        .set()
+        .unwrap();
+
+    // Histogram example 3: Cumulative histogram with auto binning strategy
+    let hist_data3 = arr1(&[
+        1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5,
+        2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 1.5, 2.5, 3.5,
+        4.5, 5.5, 3.0, 3.5, 4.0, 2.0, 3.0, 4.0, 5.0, 6.0
+    ]);
+
+    axes[(3, 2)]
+        .hist(hist_data3)
+        .bins("auto")       // HistBins::Strategy (automatic &str conversion)
+        .cumulative(true)
+        .density(true)
+        .histtype("step".to_string())
+        .color("green".to_string())
+        .linewidth(2.0)
+        .label("Cumulative".to_string())
         .set()
         .unwrap();
 
