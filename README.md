@@ -6,12 +6,12 @@ It contains two matplotlibs API: `plt.plot` and `fig, axes = plt.subplots`
 - [X] `plot`:
 - [X] `scatter`:
 - [X] `hist`:
-- [ ] `imshow`:
+- [X] `imshow`:
 - [X] `fillbetween`
 - [X] `bar`
 - [X]`axhline`
 - [X] `axvline`
-- [ ] `text`
+- [X] `text`
 
 - [ ] `suptitle`
 - [ ] `set_axis`

@@ -1,10 +1,10 @@
 use matplotlib::pyplot as plt;
-use ndarray::arr1;
+use ndarray::{arr1, Array2, Array3};
 use std::collections::HashMap;
 
 fn main() {
-    // Test here in the main thread - using 4x3 grid for more examples
-    let (_, axes) = plt::subplots(4, 3).set().unwrap();
+    // Test here in the main thread - using 5x3 grid for more examples
+    let (_, axes) = plt::subplots(5, 3).set().unwrap();
 
     // Plot example in top-left with axvline and axhline
     axes[(0,0)]
@@ -293,6 +293,71 @@ fn main() {
         .color("green".to_string())
         .linewidth(2.0)
         .label("Cumulative".to_string())
+        .set()
+        .unwrap();
+
+    // Image display example 1: Grayscale image with colormap
+    let grayscale = Array2::from_shape_fn((50, 50), |(i, j)| {
+        ((i * i + j * j) as f64).sqrt() / 70.0
+    });
+
+    axes[(4, 0)]
+        .imshow(grayscale.into_dyn())
+        .cmap("viridis".to_string())
+        .interpolation("bilinear".to_string())
+        .set()
+        .unwrap();
+
+    axes[(4, 0)]
+        .text(25.0, -5.0, "Grayscale (viridis)".to_string())
+        .fontsize(9.0)
+        .horizontalalignment("center".to_string())
+        .set()
+        .unwrap();
+
+    // Image display example 2: RGB image
+    let rgb_image = Array3::from_shape_fn((40, 60, 3), |(i, j, c)| {
+        match c {
+            0 => i as f64 / 40.0,              // Red gradient
+            1 => j as f64 / 60.0,              // Green gradient
+            2 => 0.5,                          // Constant blue
+            _ => 0.0,
+        }
+    });
+
+    axes[(4, 1)]
+        .imshow(rgb_image.into_dyn())
+        .interpolation("nearest".to_string())
+        .set()
+        .unwrap();
+
+    axes[(4, 1)]
+        .text(30.0, -5.0, "RGB Image".to_string())
+        .fontsize(9.0)
+        .horizontalalignment("center".to_string())
+        .set()
+        .unwrap();
+
+    // Image display example 3: Grayscale with extent and different colormap
+    let pattern = Array2::from_shape_fn((30, 30), |(i, j)| {
+        (((i as f64 / 5.0).sin() * (j as f64 / 5.0).cos()) + 1.0) / 2.0
+    });
+
+    axes[(4, 2)]
+        .imshow(pattern.into_dyn())
+        .cmap("hot".to_string())
+        .extent((-3.0, 3.0, -3.0, 3.0))
+        .origin("lower".to_string())
+        .aspect("equal".to_string())
+        .vmin(0.0)
+        .vmax(1.0)
+        .set()
+        .unwrap();
+
+    axes[(4, 2)]
+        .text(0.0, -4.0, "Pattern (hot colormap)".to_string())
+        .fontsize(9.0)
+        .horizontalalignment("center".to_string())
         .set()
         .unwrap();
 

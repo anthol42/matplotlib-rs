@@ -6,6 +6,7 @@ mod axvline;
 mod axhline;
 mod hist;
 mod text;
+mod imshow;
 
 use pyo3::{Py, PyAny};
 
