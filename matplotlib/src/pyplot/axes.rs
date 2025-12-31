@@ -5,6 +5,7 @@ mod bar;
 mod axvline;
 mod axhline;
 mod hist;
+mod text;
 
 use pyo3::{Py, PyAny};
 

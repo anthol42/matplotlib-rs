@@ -49,6 +49,16 @@ fn main() {
         .set()
         .unwrap();
 
+    // Add text annotation to scatter plot
+    axes[(0, 1)]
+        .text(3.0, 4.5, "Peak Value".to_string())
+        .fontsize(10.0)
+        .color("darkred".to_string())
+        .fontweight("bold".to_string())
+        .horizontalalignment("center".to_string())
+        .set()
+        .unwrap();
+
     // Plot example in bottom-left
     axes[(1, 0)]
         .plot(arr1(&[1.0, 2.0, 3.0]), arr1(&[1.0, 4.0, 9.0]))
@@ -165,6 +175,16 @@ fn main() {
         .set()
         .unwrap();
 
+    // Add rotated text annotation to bar chart
+    axes[(2, 0)]
+        .text(1.0, 50.0, "Highest Bar".to_string())
+        .fontsize(9.0)
+        .rotation(45.0)
+        .color("navy".to_string())
+        .fontstyle("italic".to_string())
+        .set()
+        .unwrap();
+
     // Bar chart example 2: Stacked bars
     let x_bar = arr1(&[0.0, 1.0, 2.0, 3.0, 4.0]);
     let heights1 = arr1(&[5.0, 7.0, 3.0, 8.0, 6.0]);
@@ -225,6 +245,17 @@ fn main() {
         .edgecolor("navy".to_string())
         .alpha(0.7)
         .label("Distribution".to_string())
+        .set()
+        .unwrap();
+
+    // Add text with background color to histogram
+    axes[(3, 0)]
+        .text(4.5, 6.0, "Mean Area".to_string())
+        .fontsize(11.0)
+        .backgroundcolor("yellow".to_string())
+        .alpha(0.8)
+        .verticalalignment("center".to_string())
+        .fontfamily("monospace".to_string())
         .set()
         .unwrap();
 
