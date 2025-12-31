@@ -18,8 +18,8 @@ It contains two matplotlibs API: `plt.plot` and `fig, axes = plt.subplots`
 - [X] `grid`
 - [X] `set_xlim`
 - [X] `set_ylim`
-- [ ] `set_xlabel`
-- [ ] `set_ylabel`
+- [X] `set_xlabel`
+- [X] `set_ylabel`
 - [ ] `set_title`
 - [ ] `legend`
 - [ ] `set_xticks`

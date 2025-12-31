@@ -1,5 +1,5 @@
 use matplotlib::pyplot as plt;
-use matplotlib::pyplot::axes::{AxisOption, GridWhich, GridAxis};
+use matplotlib::pyplot::axes::{AxisOption, GridWhich, GridAxis, XLabelLoc, YLabelLoc};
 use ndarray::{arr1, Array2, Array3};
 use std::collections::HashMap;
 use matplotlib::pyplot::axes::AxisOption::Off;
@@ -55,6 +55,20 @@ fn main() {
         .set_ylim()
         .bottom(0.0)
         .top(10.0)
+        .set()
+        .unwrap();
+
+    // Add axis labels with simple styling
+    axes[(0,0)]
+        .set_xlabel("X Values".to_string())
+        .fontsize(10.0)
+        .set()
+        .unwrap();
+
+    axes[(0,0)]
+        .set_ylabel("Y Values".to_string())
+        .fontsize(10.0)
+        .fontweight("bold".to_string())
         .set()
         .unwrap();
 
@@ -175,6 +189,21 @@ fn main() {
         .set()
         .unwrap();
 
+    // Add axis labels with color and position
+    axes[(1, 1)]
+        .set_xlabel("Data Points".to_string())
+        .color("blue".to_string())
+        .loc(XLabelLoc::Center)
+        .set()
+        .unwrap();
+
+    axes[(1, 1)]
+        .set_ylabel("Range".to_string())
+        .color("blue".to_string())
+        .fontstyle("italic".to_string())
+        .set()
+        .unwrap();
+
     // Fill between example 2: Confidence band (fill from scalar y2=0)
     let x_conf = arr1(&[0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0]);
     let y_mean = arr1(&[1.0, 1.2, 1.8, 2.0, 2.5, 2.8, 3.2, 3.5, 4.0]);
@@ -237,6 +266,23 @@ fn main() {
         .axis(GridAxis::Y)
         .color("lightgray".to_string())
         .linestyle(":".to_string())
+        .set()
+        .unwrap();
+
+    // Add styled axis labels with background
+    axes[(2, 0)]
+        .set_xlabel("Categories".to_string())
+        .fontsize(11.0)
+        .fontweight("bold".to_string())
+        .backgroundcolor("lightyellow".to_string())
+        .set()
+        .unwrap();
+
+    axes[(2, 0)]
+        .set_ylabel("Sales".to_string())
+        .fontsize(11.0)
+        .color("navy".to_string())
+        .loc(YLabelLoc::Center)
         .set()
         .unwrap();
 

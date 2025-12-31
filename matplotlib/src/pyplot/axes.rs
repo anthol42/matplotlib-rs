@@ -11,6 +11,8 @@ mod axis;
 mod grid;
 mod set_xlim;
 mod set_ylim;
+mod set_xlabel;
+mod set_ylabel;
 
 use pyo3::{Py, PyAny};
 
@@ -18,6 +20,9 @@ use pyo3::{Py, PyAny};
 pub use axis::AxisOption;
 // Re-export GridWhich and GridAxis for user convenience
 pub use grid::{GridWhich, GridAxis};
+// Re-export XLabelLoc and YLabelLoc for user convenience
+pub use set_xlabel::XLabelLoc;
+pub use set_ylabel::YLabelLoc;
 
 pub struct Axes {
     pub inner: Py<PyAny>,
