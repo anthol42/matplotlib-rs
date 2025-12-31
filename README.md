@@ -9,12 +9,12 @@ It contains two matplotlibs API: `plt.plot` and `fig, axes = plt.subplots`
 - [X] `imshow`:
 - [X] `fillbetween`
 - [X] `bar`
-- [X]`axhline`
+- [X] `axhline`
 - [X] `axvline`
 - [X] `text`
 
 - [ ] `suptitle`
-- [ ] `set_axis`
+- [X] `axis`
 - [ ] `grid`
 - [ ] `set_xlim`
 - [ ] `set_ylim`

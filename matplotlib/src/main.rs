@@ -1,6 +1,8 @@
 use matplotlib::pyplot as plt;
+use matplotlib::pyplot::axes::AxisOption;
 use ndarray::{arr1, Array2, Array3};
 use std::collections::HashMap;
+use matplotlib::pyplot::axes::AxisOption::Off;
 
 fn main() {
     // Test here in the main thread - using 5x3 grid for more examples
@@ -105,6 +107,12 @@ fn main() {
         .linestyle(":".to_string())
         .linewidth(3.0)
         .alpha(0.7)
+        .set()
+        .unwrap();
+
+    // Use axis method with Equal option for equal aspect ratio
+    axes[(0, 2)]
+        .axis(AxisOption::Equal)
         .set()
         .unwrap();
 
@@ -360,6 +368,8 @@ fn main() {
         .horizontalalignment("center".to_string())
         .set()
         .unwrap();
+
+    axes[(4, 2)].axis(Off).set().unwrap();
 
     matplotlib::show().unwrap();
 }

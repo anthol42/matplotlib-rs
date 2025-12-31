@@ -7,8 +7,12 @@ mod axhline;
 mod hist;
 mod text;
 mod imshow;
+mod axis;
 
 use pyo3::{Py, PyAny};
+
+// Re-export AxisOption for user convenience
+pub use axis::AxisOption;
 
 pub struct Axes {
     pub inner: Py<PyAny>,
