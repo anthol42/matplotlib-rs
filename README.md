@@ -20,7 +20,7 @@ It contains two matplotlibs API: `plt.plot` and `fig, axes = plt.subplots`
 - [X] `set_xlabel`
 - [X] `set_ylabel`
 - [X] `set_title`
-- [ ] `legend`
+- [X] `legend`
 - [ ] `set_xticks`
 - [ ] `set_yticks`
 - [ ] `sharex`

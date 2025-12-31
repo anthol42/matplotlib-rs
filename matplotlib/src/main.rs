@@ -1,5 +1,5 @@
 use matplotlib::pyplot as plt;
-use matplotlib::pyplot::axes::{AxisOption, GridWhich, GridAxis, XLabelLoc, YLabelLoc, TitleLoc};
+use matplotlib::pyplot::axes::{AxisOption, GridWhich, GridAxis, XLabelLoc, YLabelLoc, TitleLoc, LegendLoc};
 use ndarray::{arr1, Array2, Array3};
 use std::collections::HashMap;
 use matplotlib::pyplot::axes::AxisOption::Off;
@@ -77,6 +77,14 @@ fn main() {
         .set_title("Plot with Lines".to_string())
         .fontsize(12.0)
         .fontweight("bold".to_string())
+        .set()
+        .unwrap();
+
+    // Add simple legend
+    axes[(0,0)]
+        .legend()
+        .loc(LegendLoc::UpperLeft)
+        .fontsize(8.0)
         .set()
         .unwrap();
 
@@ -221,6 +229,17 @@ fn main() {
         .set()
         .unwrap();
 
+    // Add styled legend with custom appearance
+    axes[(1, 1)]
+        .legend()
+        .loc(LegendLoc::Best)
+        .framealpha(0.9)
+        .facecolor("lightyellow".to_string())
+        .edgecolor("blue".to_string())
+        .shadow(true)
+        .set()
+        .unwrap();
+
     // Fill between example 2: Confidence band (fill from scalar y2=0)
     let x_conf = arr1(&[0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0]);
     let y_mean = arr1(&[1.0, 1.2, 1.8, 2.0, 2.5, 2.8, 3.2, 3.5, 4.0]);
@@ -335,6 +354,17 @@ fn main() {
         .set()
         .unwrap();
 
+    // Add multi-column legend with custom positioning
+    axes[(2, 1)]
+        .legend()
+        .ncols(2)
+        .loc(LegendLoc::UpperCenter)
+        .fontsize(9.0)
+        .borderpad(0.5)
+        .columnspacing(1.0)
+        .set()
+        .unwrap();
+
     // Bar chart example 3: Bars with error bars and error_kw
     let x_err = arr1(&[1.0, 2.0, 3.0, 4.0]);
     let heights_err = arr1(&[20.0, 35.0, 30.0, 35.0]);
@@ -385,6 +415,17 @@ fn main() {
         .alpha(0.8)
         .verticalalignment("center".to_string())
         .fontfamily("monospace".to_string())
+        .set()
+        .unwrap();
+
+    // Add legend with bbox_to_anchor and title
+    axes[(3, 0)]
+        .legend()
+        .bbox_to_anchor((1.05, 1.0))
+        .title("Data".to_string())
+        .title_fontsize(10.0)
+        .fontsize(8.0)
+        .frameon(true)
         .set()
         .unwrap();
 
