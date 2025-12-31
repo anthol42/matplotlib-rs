@@ -9,6 +9,8 @@ mod text;
 mod imshow;
 mod axis;
 mod grid;
+mod set_xlim;
+mod set_ylim;
 
 use pyo3::{Py, PyAny};
 

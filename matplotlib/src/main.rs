@@ -43,6 +43,21 @@ fn main() {
         .set()
         .unwrap();
 
+    // Set x and y limits for first plot
+    axes[(0,0)]
+        .set_xlim()
+        .left(0.5)
+        .right(3.5)
+        .set()
+        .unwrap();
+
+    axes[(0,0)]
+        .set_ylim()
+        .bottom(0.0)
+        .top(10.0)
+        .set()
+        .unwrap();
+
     // Scatter example 1: Simple scatter with single color and size in top-right
     axes[(0, 1)]
         .scatter(
@@ -180,6 +195,13 @@ fn main() {
         .alpha(0.2)
         .color("red".to_string())
         .label("Confidence Band".to_string())
+        .set()
+        .unwrap();
+
+    // Set only bottom limit (leaving top unchanged) for confidence plot
+    axes[(1, 2)]
+        .set_ylim()
+        .bottom(0.0)
         .set()
         .unwrap();
 
