@@ -6,7 +6,15 @@ use matplotlib::pyplot::axes::AxisOption::Off;
 
 fn main() {
     // Test here in the main thread - using 5x3 grid for more examples
-    let (_, axes) = plt::subplots(5, 3).set().unwrap();
+    let (fig, axes) = plt::subplots(5, 3).set().unwrap();
+
+    // Add a super title to the entire figure
+    fig.suptitle("Matplotlib-rs Comprehensive Examples".to_string())
+        .fontsize(16.0)
+        .fontweight("bold".to_string())
+        .color("darkblue".to_string())
+        .set()
+        .unwrap();
 
     // Plot example in top-left with axvline and axhline
     axes[(0,0)]

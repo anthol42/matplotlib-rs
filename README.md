@@ -23,8 +23,6 @@ It contains two matplotlibs API: `plt.plot` and `fig, axes = plt.subplots`
 - [X] `legend`
 - [X] `set_xticks`
 - [X] `set_yticks`
-- [ ] `sharex`
-- [ ] `sharey`
 
 - [ ] `suptitle`
 - [ ] `savefig`
