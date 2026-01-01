@@ -15,6 +15,8 @@ mod set_xlabel;
 mod set_ylabel;
 mod set_title;
 mod legend;
+mod set_xticks;
+mod set_yticks;
 
 use pyo3::{Py, PyAny};
 

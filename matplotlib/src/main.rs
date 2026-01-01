@@ -88,6 +88,14 @@ fn main() {
         .set()
         .unwrap();
 
+    // Set custom x-ticks with labels
+    axes[(0,0)]
+        .set_xticks(arr1(&[1.0, 2.0, 3.0]))
+        .labels(vec!["One".to_string(), "Two".to_string(), "Three".to_string()])
+        .fontsize(9.0)
+        .set()
+        .unwrap();
+
     // Scatter example 1: Simple scatter with single color and size in top-right
     axes[(0, 1)]
         .scatter(
@@ -333,6 +341,15 @@ fn main() {
         .set()
         .unwrap();
 
+    // Set custom y-ticks with labels
+    axes[(2, 0)]
+        .set_yticks(arr1(&[0.0, 20.0, 40.0, 60.0]))
+        .labels(vec!["Low".to_string(), "Med".to_string(), "High".to_string(), "Max".to_string()])
+        .fontsize(9.0)
+        .color("navy".to_string())
+        .set()
+        .unwrap();
+
     // Bar chart example 2: Stacked bars
     let x_bar = arr1(&[0.0, 1.0, 2.0, 3.0, 4.0]);
     let heights1 = arr1(&[5.0, 7.0, 3.0, 8.0, 6.0]);
@@ -362,6 +379,15 @@ fn main() {
         .fontsize(9.0)
         .borderpad(0.5)
         .columnspacing(1.0)
+        .set()
+        .unwrap();
+
+    // Set custom x-ticks for stacked bar chart
+    axes[(2, 1)]
+        .set_xticks(arr1(&[0.0, 1.0, 2.0, 3.0, 4.0]))
+        .labels(vec!["Q1".to_string(), "Q2".to_string(), "Q3".to_string(), "Q4".to_string(), "Q5".to_string()])
+        .fontsize(9.0)
+        .rotation(45.0)
         .set()
         .unwrap();
 
