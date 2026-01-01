@@ -1,4 +1,5 @@
 mod suptitle;
+mod savefig;
 
 use pyo3::{Py, PyAny};
 

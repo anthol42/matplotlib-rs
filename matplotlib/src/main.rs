@@ -567,5 +567,13 @@ fn main() {
 
     axes[(4, 2)].axis(Off).set().unwrap();
 
+    // // Save the figure to a file with high resolution and tight bounding box
+    // fig.savefig("matplotlib_rs_example.png".to_string())
+    //     .dpi(150.0)
+    //     .bbox_inches("tight".to_string())
+    //     .pad_inches(0.2)
+    //     .set()
+    //     .unwrap();
+
     matplotlib::show().unwrap();
 }
