@@ -16,6 +16,13 @@ fn main() {
         .set()
         .unwrap();
 
+    // Apply tight layout to optimize subplot spacing
+    fig.tight_layout()
+        .pad(1.5)
+        .rect((0.0, 0.0, 1.0, 0.96))
+        .set()
+        .unwrap();
+
     // Plot example in top-left with axvline and axhline
     axes[(0,0)]
         .plot(arr1(&[1.0, 2.0, 3.0]), arr1(&[1.0, 4.0, 9.0]))

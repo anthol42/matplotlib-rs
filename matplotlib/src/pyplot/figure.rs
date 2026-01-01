@@ -1,5 +1,6 @@
 mod suptitle;
 mod savefig;
+mod tight_layout;
 
 use pyo3::{Py, PyAny};
 
