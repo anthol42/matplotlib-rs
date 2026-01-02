@@ -1,7 +1,7 @@
-mod suptitle;
-mod savefig;
-mod tight_layout;
-mod subplots_adjust;
+pub mod suptitle;
+pub mod savefig;
+pub mod tight_layout;
+pub mod subplots_adjust;
 
 use pyo3::{Py, PyAny};
 

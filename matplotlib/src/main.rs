@@ -586,5 +586,5 @@ fn main() {
     //     .set()
     //     .unwrap();
 
-    matplotlib::show().unwrap();
+    plt::show().unwrap();
 }
