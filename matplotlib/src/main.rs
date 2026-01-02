@@ -16,10 +16,14 @@ fn main() {
         .set()
         .unwrap();
 
-    // Apply tight layout to optimize subplot spacing
-    fig.tight_layout()
-        .pad(1.5)
-        .rect((0.0, 0.0, 1.0, 0.96))
+    // Adjust subplot layout parameters manually
+    fig.subplots_adjust()
+        .left(0.08)
+        .right(0.95)
+        .bottom(0.05)
+        .top(0.93)
+        .wspace(0.3)
+        .hspace(0.4)
         .set()
         .unwrap();
 

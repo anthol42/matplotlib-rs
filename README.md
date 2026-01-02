@@ -27,4 +27,4 @@ It contains two matplotlibs API: `plt.plot` and `fig, axes = plt.subplots`
 - [X] `suptitle`
 - [X] `savefig`
 - [X] `tight_layout`
-- [ ] `subplots_adjust`
+- [X] `subplots_adjust`
