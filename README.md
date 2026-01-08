@@ -1,6 +1,12 @@
 # Matplotlib Rust Wrapper
 It contains two matplotlibs API: `plt.plot` and `fig, axes = plt.subplots`
 
+## Installation
+You can easily install the crate with:
+```shell
+cargo add --git "https://github.com/anthol42/matplotlib-rs.git" matplotlib
+```
+
 ## Example
 The `matplotlib_rs` crate is design to match the python api of matplotlib. This means that if you are familiar with 
 the official matplotlib api, you will feel right at home! If you aren't familiar with the api, you can check the 
@@ -25,7 +31,7 @@ plt::plot(arr1(&[1.0, 2.0, 3.0, 4.0, 5.0]), arr1(&[1.0, 4.0, 9.0, 16.0, 25.0]))
         .set().unwrap();
 
 // Then, you can show the plot with
-plt::show();
+plt::show().unwrap();
 ```
 
 Check out the `/matplotlib/examples` for more examples, and check out the documentation to know what parameters are 
