@@ -2,8 +2,9 @@ use pyo3::prelude::*;
 use kwargs_builder_derive::KwargsBuilder;
 use ndarray::{Array2};
 
-use super::axes::Axes;
-use super::figure::Figure;
+use crate::pyplot::axes::Axes;
+use crate::pyplot::figure::Figure;
+use crate::pyplot::pyplot_api::get_plt;
 
 #[derive(KwargsBuilder)]
 pub struct SubPlotsBuilder {
@@ -18,7 +19,8 @@ pub struct SubPlotsBuilder {
 impl SubPlotsBuilder {
     pub fn set(self) -> PyResult<(Figure, Array2<Axes>)> {
         Python::attach(|py| {
-            let plt = py.import("matplotlib.pyplot")?;
+            let plt_obj = get_plt()?;
+            let plt = plt_obj.bind(py);
             let kwargs = self.get_kwargs(py)?;
             kwargs.set_item("squeeze", false)?;
 

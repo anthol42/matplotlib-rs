@@ -1,12 +1,11 @@
 use pyo3::prelude::*;
-pub mod subplots;
 pub mod axes;
 pub mod figure;
 pub mod pyplot_api;
 
 use pyo3::{PyResult, Python};
 // Re-exports
-pub use subplots::subplots;
+pub use pyplot_api::subplots::subplots;
 
 pub fn show() -> PyResult<()> {
     Python::attach(|py| {
@@ -20,19 +19,19 @@ pub fn show() -> PyResult<()> {
 // Re-export pyplot API
 pub use pyplot_api::{
     // Functions
-    plot, scatter, hist, imshow, fill_between, bar, axhline, axvline, text, axis,
-    xlabel, ylabel, title, xlim, ylim, xticks, yticks, legend, grid,
-    suptitle, savefig, tight_layout, subplots_adjust,
+    axhline, axis, axvline, bar, fill_between, grid, hist, imshow, legend, plot,
+    savefig, scatter, subplots_adjust, suptitle, text, tight_layout, title, xlabel, xlim,
+    xticks, ylabel, ylim, yticks,
     // Builders
-    PyPlotBuilder, PyScatterBuilder, PyHistBuilder, PyImshowBuilder, PyFillBetweenBuilder,
-    PyBarBuilder, PyAxhlineBuilder, PyAxvlineBuilder, PyTextBuilder, PyAxisBuilder,
-    PyXlabelBuilder, PyYlabelBuilder, PyTitleBuilder, PyXlimBuilder, PyYlimBuilder,
-    PyXticksBuilder, PyYticksBuilder, PyLegendBuilder, PyGridBuilder,
-    PySuptitleBuilder, PySavefigBuilder, PyTightLayoutBuilder, PySubplotsAdjustBuilder,
+    AxisOption, BarBottom, BarWidth, ErrorKwValue, FillBetweenY2,
+    GridAxis, GridWhich, HistBins, LegendAlignment, LegendLoc,
+    PyAxhlineBuilder, PyAxisBuilder, PyAxvlineBuilder, PyBarBuilder, PyFillBetweenBuilder,
+    PyGridBuilder, PyHistBuilder, PyImshowBuilder, PyLegendBuilder,
+    PyPlotBuilder, PySavefigBuilder, PyScatterBuilder, PySubplotsAdjustBuilder,
     // Enums
-    ScatterSize, ScatterColor, HistBins, FillBetweenY2, BarWidth, BarBottom, ErrorKwValue,
-    AxisOption, XLabelLoc, YLabelLoc, TitleLoc,
-    LegendLoc, LegendAlignment, GridWhich, GridAxis,
-    SuptitleHAlign, SuptitleVAlign,
+    PySuptitleBuilder, PyTextBuilder, PyTightLayoutBuilder, PyTitleBuilder, PyXlabelBuilder, PyXlimBuilder, PyXticksBuilder,
+    PyYlabelBuilder, PyYlimBuilder, PyYticksBuilder, ScatterColor,
+    ScatterSize, SuptitleHAlign, SuptitleVAlign, TitleLoc,
+    XLabelLoc, YLabelLoc,
 };
 use pyplot_api::get_plt;
