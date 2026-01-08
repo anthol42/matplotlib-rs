@@ -39,6 +39,18 @@ impl PySubplotsAdjustBuilder {
     }
 }
 
+/// Adjust the subplot layout parameters.
+///
+/// # Parameters
+/// - `left`: Option<f64>
+/// - `bottom`: Option<f64>
+/// - `right`: Option<f64>
+/// - `top`: Option<f64>
+/// - `wspace`: Option<f64>
+/// - `hspace`: Option<f64>
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots_adjust.html>
 pub fn subplots_adjust() -> PySubplotsAdjustBuilder {
     PySubplotsAdjustBuilder::new()
 }

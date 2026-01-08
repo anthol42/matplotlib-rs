@@ -34,6 +34,21 @@ impl<'a> AxvlineBuilder<'a> {
 }
 
 impl Axes {
+    /// Add a vertical line across the axes.
+    ///
+    /// # Parameters
+    /// - `x`: f64
+    /// - `ymin`: Option<f64>
+    /// - `ymax`: Option<f64>
+    /// - `color`: Option<String>
+    /// - `linewidth`: Option<f64>
+    /// - `linestyle`: Option<String>
+    /// - `alpha`: Option<f64>
+    /// - `label`: Option<String>
+    /// - `zorder`: Option<i32>
+    ///
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.axvline.html>
     pub fn axvline(&self, x: f64) -> AxvlineBuilder<'_> {
         AxvlineBuilder {
             axes: self,

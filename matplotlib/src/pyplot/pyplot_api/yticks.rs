@@ -61,6 +61,21 @@ impl PyYticksBuilder {
     }
 }
 
+/// Get or set the current tick locations and labels of the y-axis.
+///
+/// # Parameters
+/// - `ticks`: Array1<f64>
+/// - `labels`: Option<Vec<String>>
+/// - `minor`: Option<bool>
+/// - `fontsize`: Option<f64>
+/// - `fontweight`: Option<String>
+/// - `fontstyle`: Option<String>
+/// - `fontfamily`: Option<String>
+/// - `color`: Option<String>
+/// - `rotation`: Option<f64>
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.yticks.html>
 pub fn yticks(ticks: Array1<f64>) -> PyYticksBuilder {
     PyYticksBuilder::new(ticks)
 }

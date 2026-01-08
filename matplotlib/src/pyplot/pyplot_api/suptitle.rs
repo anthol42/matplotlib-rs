@@ -107,6 +107,24 @@ impl PySuptitleBuilder {
     }
 }
 
+/// Add a centered suptitle to the figure.
+///
+/// # Parameters
+/// - `t`: String
+/// - `x`: Option<f64>
+/// - `y`: Option<f64>
+/// - `horizontalalignment`: Option<SuptitleHAlign> - Center, Left, or Right
+/// - `verticalalignment`: Option<SuptitleVAlign> - Top, Center, Bottom, or Baseline
+/// - `fontsize`: Option<f64>
+/// - `fontweight`: Option<String>
+/// - `fontstyle`: Option<String>
+/// - `fontfamily`: Option<String>
+/// - `color`: Option<String>
+/// - `alpha`: Option<f64>
+/// - `backgroundcolor`: Option<String>
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html>
 pub fn suptitle(t: String) -> PySuptitleBuilder {
     PySuptitleBuilder::new(t)
 }

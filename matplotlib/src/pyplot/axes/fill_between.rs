@@ -94,6 +94,25 @@ impl<'a> FillBetweenBuilder<'a> {
 }
 
 impl Axes {
+    /// Fill the area between two horizontal curves.
+    ///
+    /// # Parameters
+    /// - `x`: Array1<f64>
+    /// - `y1`: Array1<f64>
+    /// - `y2`: Option<FillBetweenY2> - Second y values (scalar or array, defaults to 0)
+    /// - `where_mask`: Option<Array1<bool>> - Boolean array to define where to fill
+    /// - `interpolate`: Option<bool>
+    /// - `alpha`: Option<f64>
+    /// - `color`: Option<String>
+    /// - `edgecolor`: Option<String>
+    /// - `linewidth`: Option<f64>
+    /// - `step`: Option<String>
+    /// - `label`: Option<String>
+    /// - `zorder`: Option<i32>
+    /// - `hatch`: Option<String>
+    ///
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.fill_between.html>
     pub fn fill_between(&self, x: Array1<f64>, y1: Array1<f64>) -> FillBetweenBuilder<'_> {
         FillBetweenBuilder {
             axes: self,

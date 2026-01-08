@@ -42,6 +42,27 @@ impl<'a> TextBuilder<'a> {
 }
 
 impl Axes {
+    /// Add text to the axes.
+    ///
+    /// # Parameters
+    /// - `x`: f64
+    /// - `y`: f64
+    /// - `s`: String
+    /// - `fontsize`: Option<f64>
+    /// - `fontweight`: Option<String>
+    /// - `fontstyle`: Option<String>
+    /// - `fontfamily`: Option<String>
+    /// - `horizontalalignment`: Option<String>
+    /// - `verticalalignment`: Option<String>
+    /// - `color`: Option<String>
+    /// - `alpha`: Option<f64>
+    /// - `backgroundcolor`: Option<String>
+    /// - `rotation`: Option<f64>
+    /// - `label`: Option<String>
+    /// - `zorder`: Option<i32>
+    ///
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.text.html>
     pub fn text(&self, x: f64, y: f64, s: String) -> TextBuilder<'_> {
         TextBuilder {
             axes: self,

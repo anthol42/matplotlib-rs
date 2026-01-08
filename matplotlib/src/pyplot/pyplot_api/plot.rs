@@ -80,14 +80,26 @@ impl PyPlotBuilder {
 
 /// Plot y versus x as lines and/or markers.
 ///
-/// # Examples
-/// ```ignore
-/// plt::plot(x, y)
-///     .color("blue".to_string())
-///     .marker("o".to_string())
-///     .label("Data".to_string())
-///     .set()?;
-/// ```
+/// # Parameters
+/// - `x`: Array1<f64>
+/// - `y`: Array1<f64>
+/// - `fmt`: Option<String>
+/// - `color`: Option<String>
+/// - `linestyle`: Option<String>
+/// - `linewidth`: Option<f64>
+/// - `alpha`: Option<f64>
+/// - `label`: Option<String>
+/// - `antialiased`: Option<bool>
+/// - `marker`: Option<String>
+/// - `markersize`: Option<f64>
+/// - `markerfacecolor`: Option<String>
+/// - `markeredgecolor`: Option<String>
+/// - `markeredgewidth`: Option<f64>
+/// - `zorder`: Option<i32>
+/// - `rasterized`: Option<bool>
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html>
 pub fn plot(x: Array1<f64>, y: Array1<f64>) -> PyPlotBuilder {
     PyPlotBuilder::new(x, y)
 }

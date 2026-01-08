@@ -112,6 +112,25 @@ impl PyHistBuilder {
     }
 }
 
+/// Compute and plot a histogram.
+///
+/// # Parameters
+/// - `x`: Array1<f64>
+/// - `bins`: Option<HistBins> - Number of bins (i32), bin edges (Array1<f64>), or binning strategy (String)
+/// - `range`: Option<(f64, f64)> - Lower and upper range of bins
+/// - `density`: Option<bool>
+/// - `cumulative`: Option<bool>
+/// - `histtype`: Option<String>
+/// - `orientation`: Option<String>
+/// - `rwidth`: Option<f64>
+/// - `color`: Option<String>
+/// - `edgecolor`: Option<String>
+/// - `linewidth`: Option<f64>
+/// - `alpha`: Option<f64>
+/// - `label`: Option<String>
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html>
 pub fn hist(x: Array1<f64>) -> PyHistBuilder {
     PyHistBuilder::new(x)
 }

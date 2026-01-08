@@ -58,6 +58,28 @@ impl<'a> PlotBuilder<'a> {
 }
 
 impl Axes {
+    /// Plot y versus x as lines and/or markers.
+    ///
+    /// # Parameters
+    /// - `x`: Array1<f64>
+    /// - `y`: Array1<f64>
+    /// - `fmt`: Option<String>
+    /// - `color`: Option<String>
+    /// - `linestyle`: Option<String>
+    /// - `linewidth`: Option<f64>
+    /// - `alpha`: Option<f64>
+    /// - `label`: Option<String>
+    /// - `antialiased`: Option<bool>
+    /// - `marker`: Option<String>
+    /// - `markersize`: Option<f64>
+    /// - `markerfacecolor`: Option<String>
+    /// - `markeredgecolor`: Option<String>
+    /// - `markeredgewidth`: Option<f64>
+    /// - `zorder`: Option<i32>
+    /// - `rasterized`: Option<bool>
+    ///
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html>
     pub fn plot(&self, x: Array1<f64>, y: Array1<f64>) -> PlotBuilder<'_> {
         PlotBuilder {
             axes: self,

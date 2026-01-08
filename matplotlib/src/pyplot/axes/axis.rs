@@ -58,22 +58,13 @@ impl<'a> AxisBuilder<'a> {
 }
 
 impl Axes {
-    /// Set axis properties using predefined options.
+    /// Convenience method to get or set some axis properties.
     ///
-    /// # Arguments
-    /// * `option` - An AxisOption enum variant (compile-time validated)
+    /// # Parameters
+    /// - `option`: AxisOption - On, Off, Equal, Scaled, Tight, Auto, Image, or Square
     ///
-    /// # Examples
-    /// ```ignore
-    /// // Equal aspect ratio (circles appear circular)
-    /// axes.axis(AxisOption::Equal).set()?;
-    ///
-    /// // Hide all axis decorations
-    /// axes.axis(AxisOption::Off).set()?;
-    ///
-    /// // Tight limits showing all data
-    /// axes.axis(AxisOption::Tight).set()?;
-    /// ```
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.axis.html>
     pub fn axis(&self, option: AxisOption) -> AxisBuilder<'_> {
         AxisBuilder {
             axes: self,

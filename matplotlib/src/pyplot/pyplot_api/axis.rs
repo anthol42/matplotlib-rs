@@ -50,6 +50,13 @@ impl PyAxisBuilder {
     }
 }
 
+/// Convenience method to get or set some axis properties.
+///
+/// # Parameters
+/// - `option`: AxisOption - On, Off, Equal, Scaled, Tight, Auto, Image, or Square
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axis.html>
 pub fn axis(option: AxisOption) -> PyAxisBuilder {
     PyAxisBuilder::new(option)
 }

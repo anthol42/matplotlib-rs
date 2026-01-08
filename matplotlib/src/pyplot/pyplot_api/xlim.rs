@@ -35,13 +35,13 @@ impl PyXlimBuilder {
 
 /// Get or set the x limits of the current axes.
 ///
-/// # Examples
-/// ```ignore
-/// plt::xlim()
-///     .left(0.0)
-///     .right(10.0)
-///     .set()?;
-/// ```
+/// # Parameters
+/// - `left`: Option<f64>
+/// - `right`: Option<f64>
+/// - `auto`: Option<bool>
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlim.html>
 pub fn xlim() -> PyXlimBuilder {
     PyXlimBuilder::new()
 }

@@ -175,13 +175,29 @@ impl PyLegendBuilder {
 
 /// Place a legend on the current axes.
 ///
-/// # Examples
-/// ```ignore
-/// plt::legend()
-///     .loc(LegendLoc::UpperRight)
-///     .fontsize(10.0)
-///     .set()?;
-/// ```
+/// # Parameters
+/// - `loc`: Option<LegendLoc> - Location of legend
+/// - `bbox_to_anchor`: Option<(f64, f64)> - Bounding box anchor
+/// - `fontsize`: Option<f64>
+/// - `labelcolor`: Option<String>
+/// - `title`: Option<String>
+/// - `title_fontsize`: Option<f64>
+/// - `alignment`: Option<LegendAlignment> - Text alignment
+/// - `ncols`: Option<i32>
+/// - `labelspacing`: Option<f64>
+/// - `borderpad`: Option<f64>
+/// - `handlelength`: Option<f64>
+/// - `columnspacing`: Option<f64>
+/// - `markerscale`: Option<f64>
+/// - `frameon`: Option<bool>
+/// - `fancybox`: Option<bool>
+/// - `shadow`: Option<bool>
+/// - `framealpha`: Option<f64>
+/// - `facecolor`: Option<String>
+/// - `edgecolor`: Option<String>
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html>
 pub fn legend() -> PyLegendBuilder {
     PyLegendBuilder::new()
 }

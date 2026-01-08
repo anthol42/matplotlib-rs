@@ -43,6 +43,20 @@ impl PySavefigBuilder {
     }
 }
 
+/// Save the current figure.
+///
+/// # Parameters
+/// - `fname`: String
+/// - `dpi`: Option<f64>
+/// - `format`: Option<String>
+/// - `transparent`: Option<bool>
+/// - `bbox_inches`: Option<String>
+/// - `pad_inches`: Option<f64>
+/// - `facecolor`: Option<String>
+/// - `edgecolor`: Option<String>
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html>
 pub fn savefig(fname: String) -> PySavefigBuilder {
     PySavefigBuilder::new(fname)
 }

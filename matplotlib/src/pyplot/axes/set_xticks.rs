@@ -54,39 +54,19 @@ impl<'a> SetXticksBuilder<'a> {
 impl Axes {
     /// Set the x-axis tick locations and optionally labels.
     ///
-    /// # Arguments
-    /// * `ticks` - Array of tick locations (required)
+    /// # Parameters
+    /// - `ticks`: Array1<f64>
+    /// - `labels`: Option<Vec<String>>
+    /// - `minor`: Option<bool>
+    /// - `fontsize`: Option<f64>
+    /// - `fontweight`: Option<String>
+    /// - `fontstyle`: Option<String>
+    /// - `fontfamily`: Option<String>
+    /// - `color`: Option<String>
+    /// - `rotation`: Option<f64>
     ///
-    /// Optional parameters via builder pattern:
-    /// * `labels` - Custom tick labels (must match ticks length)
-    /// * `minor` - If true, set minor ticks instead of major ticks (default: false)
-    ///
-    /// Text properties (only when labels are provided):
-    /// * `fontsize` - Font size in points
-    /// * `fontweight` - Font weight (e.g., "bold", "normal")
-    /// * `fontstyle` - Font style (e.g., "italic", "normal")
-    /// * `fontfamily` - Font family (e.g., "serif", "monospace")
-    /// * `color` - Text color
-    /// * `rotation` - Rotation angle in degrees
-    ///
-    /// # Examples
-    /// ```ignore
-    /// // Set tick locations only
-    /// axes.set_xticks(arr1(&[0.0, 1.0, 2.0, 3.0]))
-    ///     .set()?;
-    ///
-    /// // Set ticks with custom labels
-    /// axes.set_xticks(arr1(&[0.0, 1.0, 2.0, 3.0]))
-    ///     .labels(vec!["A".to_string(), "B".to_string(), "C".to_string(), "D".to_string()])
-    ///     .fontsize(10.0)
-    ///     .rotation(45.0)
-    ///     .set()?;
-    ///
-    /// // Set minor ticks
-    /// axes.set_xticks(arr1(&[0.5, 1.5, 2.5]))
-    ///     .minor(true)
-    ///     .set()?;
-    /// ```
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_xticks.html>
     pub fn set_xticks(&self, ticks: Array1<f64>) -> SetXticksBuilder<'_> {
         SetXticksBuilder {
             axes: self,

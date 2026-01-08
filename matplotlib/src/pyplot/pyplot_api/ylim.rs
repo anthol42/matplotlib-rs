@@ -35,13 +35,13 @@ impl PyYlimBuilder {
 
 /// Get or set the y limits of the current axes.
 ///
-/// # Examples
-/// ```ignore
-/// plt::ylim()
-///     .bottom(0.0)
-///     .top(100.0)
-///     .set()?;
-/// ```
+/// # Parameters
+/// - `bottom`: Option<f64>
+/// - `top`: Option<f64>
+/// - `auto`: Option<bool>
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylim.html>
 pub fn ylim() -> PyYlimBuilder {
     PyYlimBuilder::new()
 }

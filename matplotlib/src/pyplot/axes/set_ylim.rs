@@ -28,36 +28,13 @@ impl<'a> SetYlimBuilder<'a> {
 impl Axes {
     /// Set the y-axis view limits.
     ///
-    /// # Arguments
-    /// All parameters are optional and can be set using the builder pattern:
-    /// * `bottom` - The bottom ylim in data coordinates
-    /// * `top` - The top ylim in data coordinates
-    /// * `auto` - Whether to turn on autoscaling of the y-axis
+    /// # Parameters
+    /// - `bottom`: Option<f64>
+    /// - `top`: Option<f64>
+    /// - `auto`: Option<bool>
     ///
-    /// # Examples
-    /// ```ignore
-    /// // Set both limits
-    /// axes.set_ylim()
-    ///     .bottom(0.0)
-    ///     .top(10.0)
-    ///     .set()?;
-    ///
-    /// // Set only one limit (leave the other unchanged)
-    /// axes.set_ylim()
-    ///     .top(5.0)
-    ///     .set()?;
-    ///
-    /// // Reverse limits to flip y-axis direction (e.g., for depth)
-    /// axes.set_ylim()
-    ///     .bottom(5000.0)
-    ///     .top(0.0)
-    ///     .set()?;
-    ///
-    /// // Enable autoscaling
-    /// axes.set_ylim()
-    ///     .auto(true)
-    ///     .set()?;
-    /// ```
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_ylim.html>
     pub fn set_ylim(&self) -> SetYlimBuilder<'_> {
         SetYlimBuilder {
             axes: self,

@@ -87,13 +87,22 @@ impl PyTitleBuilder {
 
 /// Set a title for the current axes.
 ///
-/// # Examples
-/// ```ignore
-/// plt::title("My Plot".to_string())
-///     .fontsize(14.0)
-///     .fontweight("bold".to_string())
-///     .set()?;
-/// ```
+/// # Parameters
+/// - `label`: String
+/// - `loc`: Option<TitleLoc> - Center, Left, or Right
+/// - `y`: Option<f64>
+/// - `pad`: Option<f64>
+/// - `fontsize`: Option<f64>
+/// - `fontweight`: Option<String>
+/// - `fontstyle`: Option<String>
+/// - `fontfamily`: Option<String>
+/// - `color`: Option<String>
+/// - `rotation`: Option<f64>
+/// - `alpha`: Option<f64>
+/// - `backgroundcolor`: Option<String>
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html>
 pub fn title(label: String) -> PyTitleBuilder {
     PyTitleBuilder::new(label)
 }

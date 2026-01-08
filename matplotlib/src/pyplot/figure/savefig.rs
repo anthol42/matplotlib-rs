@@ -31,47 +31,20 @@ impl<'a> SavefigBuilder<'a> {
 }
 
 impl Figure {
-    /// Save the current figure to a file.
+    /// Save the current figure.
     ///
-    /// # Arguments
-    /// * `fname` - A file path or filename (required). Format is inferred from the extension.
+    /// # Parameters
+    /// - `fname`: String
+    /// - `dpi`: Option<f64>
+    /// - `format`: Option<String>
+    /// - `transparent`: Option<bool>
+    /// - `bbox_inches`: Option<String>
+    /// - `pad_inches`: Option<f64>
+    /// - `facecolor`: Option<String>
+    /// - `edgecolor`: Option<String>
     ///
-    /// Optional parameters via builder pattern:
-    /// * `dpi` - Resolution in dots per inch (default: figure's dpi)
-    /// * `format` - File format (e.g., "png", "pdf", "svg"). If not specified, inferred from fname extension.
-    /// * `transparent` - If true, figure and axes patches are transparent
-    /// * `bbox_inches` - Bounding box in inches. Use "tight" to fit the figure tightly.
-    /// * `pad_inches` - Padding around figure when bbox_inches is "tight" (default: 0.1)
-    /// * `facecolor` - Figure facecolor (use "auto" for current color)
-    /// * `edgecolor` - Figure edgecolor (use "auto" for current color)
-    ///
-    /// # Examples
-    /// ```ignore
-    /// // Simple save with inferred format
-    /// fig.savefig("plot.png".to_string())
-    ///     .set()?;
-    ///
-    /// // High-resolution PNG with tight bounding box
-    /// fig.savefig("plot.png".to_string())
-    ///     .dpi(300.0)
-    ///     .bbox_inches("tight".to_string())
-    ///     .set()?;
-    ///
-    /// // PDF with transparency
-    /// fig.savefig("output.pdf".to_string())
-    ///     .format("pdf".to_string())
-    ///     .transparent(true)
-    ///     .set()?;
-    ///
-    /// // Custom styling
-    /// fig.savefig("styled.png".to_string())
-    ///     .dpi(150.0)
-    ///     .facecolor("white".to_string())
-    ///     .edgecolor("black".to_string())
-    ///     .bbox_inches("tight".to_string())
-    ///     .pad_inches(0.2)
-    ///     .set()?;
-    /// ```
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.savefig.html>
     pub fn savefig(&self, fname: String) -> SavefigBuilder<'_> {
         SavefigBuilder {
             figure: self,

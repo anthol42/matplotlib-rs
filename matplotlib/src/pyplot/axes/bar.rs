@@ -208,6 +208,30 @@ impl<'a> BarBuilder<'a> {
 }
 
 impl Axes {
+    /// Make a bar plot.
+    ///
+    /// # Parameters
+    /// - `x`: Array1<f64>
+    /// - `height`: Array1<f64>
+    /// - `width`: Option<BarWidth> - Bar width (scalar or array)
+    /// - `bottom`: Option<BarBottom> - Bottom baseline (scalar or array)
+    /// - `align`: Option<String>
+    /// - `color`: Option<String>
+    /// - `edgecolor`: Option<String>
+    /// - `linewidth`: Option<f64>
+    /// - `alpha`: Option<f64>
+    /// - `label`: Option<String>
+    /// - `tick_label`: Option<Vec<String>>
+    /// - `yerr`: Option<Array1<f64>>
+    /// - `xerr`: Option<Array1<f64>>
+    /// - `ecolor`: Option<String>
+    /// - `capsize`: Option<f64>
+    /// - `error_kw`: Option<HashMap<String, ErrorKwValue>>
+    /// - `hatch`: Option<String>
+    /// - `zorder`: Option<i32>
+    ///
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.bar.html>
     pub fn bar(&self, x: Array1<f64>, height: Array1<f64>) -> BarBuilder<'_> {
         BarBuilder {
             axes: self,

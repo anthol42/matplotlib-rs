@@ -55,6 +55,22 @@ impl<'a> ImshowBuilder<'a> {
 }
 
 impl Axes {
+    /// Display data as an image, i.e., on a 2D regular raster.
+    ///
+    /// # Parameters
+    /// - `x`: ArrayD<f64> - 2D array (grayscale) or 3D array (RGB/RGBA)
+    /// - `cmap`: Option<String>
+    /// - `vmin`: Option<f64>
+    /// - `vmax`: Option<f64>
+    /// - `aspect`: Option<String>
+    /// - `interpolation`: Option<String>
+    /// - `origin`: Option<String>
+    /// - `extent`: Option<(f64, f64, f64, f64)> - (left, right, bottom, top)
+    /// - `alpha`: Option<f64>
+    /// - `label`: Option<String>
+    ///
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.imshow.html>
     pub fn imshow(&self, x: ArrayD<f64>) -> ImshowBuilder<'_> {
         ImshowBuilder {
             axes: self,

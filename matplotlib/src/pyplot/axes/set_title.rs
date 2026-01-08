@@ -71,42 +71,22 @@ impl<'a> SetTitleBuilder<'a> {
 impl Axes {
     /// Set a title for the Axes.
     ///
-    /// # Arguments
-    /// * `label` - The title text (required)
+    /// # Parameters
+    /// - `label`: String
+    /// - `loc`: Option<TitleLoc> - Center, Left, or Right
+    /// - `y`: Option<f64>
+    /// - `pad`: Option<f64>
+    /// - `fontsize`: Option<f64>
+    /// - `fontweight`: Option<String>
+    /// - `fontstyle`: Option<String>
+    /// - `fontfamily`: Option<String>
+    /// - `color`: Option<String>
+    /// - `rotation`: Option<f64>
+    /// - `alpha`: Option<f64>
+    /// - `backgroundcolor`: Option<String>
     ///
-    /// Optional parameters via builder pattern:
-    /// * `loc` - Title position (TitleLoc::Center, Left, or Right)
-    /// * `y` - Vertical Axes location for the title (1.0 is the top)
-    /// * `pad` - Offset of the title from top of Axes in points
-    /// * `fontsize` - Font size in points
-    /// * `fontweight` - Font weight (e.g., "bold", "normal")
-    /// * `fontstyle` - Font style (e.g., "italic", "normal")
-    /// * `fontfamily` - Font family (e.g., "serif", "monospace")
-    /// * `color` - Text color
-    /// * `rotation` - Rotation angle in degrees
-    /// * `alpha` - Transparency (0.0 to 1.0)
-    /// * `backgroundcolor` - Background color for the title
-    ///
-    /// # Examples
-    /// ```ignore
-    /// // Simple title
-    /// axes.set_title("My Plot".to_string())
-    ///     .set()?;
-    ///
-    /// // Styled title
-    /// axes.set_title("Temperature vs Time".to_string())
-    ///     .fontsize(16.0)
-    ///     .fontweight("bold".to_string())
-    ///     .color("darkblue".to_string())
-    ///     .set()?;
-    ///
-    /// // Positioned title with custom padding
-    /// axes.set_title("Left Title".to_string())
-    ///     .loc(TitleLoc::Left)
-    ///     .fontsize(14.0)
-    ///     .pad(20.0)
-    ///     .set()?;
-    /// ```
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_title.html>
     pub fn set_title(&self, label: String) -> SetTitleBuilder<'_> {
         SetTitleBuilder {
             axes: self,

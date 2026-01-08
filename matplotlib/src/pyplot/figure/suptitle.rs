@@ -106,51 +106,24 @@ impl<'a> SuptitleBuilder<'a> {
 }
 
 impl Figure {
-    /// Add a centered super title to the figure.
+    /// Add a centered suptitle to the figure.
     ///
-    /// The suptitle appears at the top of the figure, spanning all subplots.
+    /// # Parameters
+    /// - `t`: String
+    /// - `x`: Option<f64>
+    /// - `y`: Option<f64>
+    /// - `horizontalalignment`: Option<SuptitleHAlign> - Center, Left, or Right
+    /// - `verticalalignment`: Option<SuptitleVAlign> - Top, Center, Bottom, or Baseline
+    /// - `fontsize`: Option<f64>
+    /// - `fontweight`: Option<String>
+    /// - `fontstyle`: Option<String>
+    /// - `fontfamily`: Option<String>
+    /// - `color`: Option<String>
+    /// - `alpha`: Option<f64>
+    /// - `backgroundcolor`: Option<String>
     ///
-    /// # Arguments
-    /// * `t` - The super title text (required)
-    ///
-    /// Optional parameters via builder pattern:
-    ///
-    /// **Positioning:**
-    /// * `x` - X location in figure coordinates (default: 0.5)
-    /// * `y` - Y location in figure coordinates (default: 0.98)
-    /// * `horizontalalignment` - Horizontal alignment (SuptitleHAlign::Center, Left, or Right)
-    /// * `verticalalignment` - Vertical alignment (SuptitleVAlign::Top, Center, Bottom, or Baseline)
-    ///
-    /// **Text Properties:**
-    /// * `fontsize` - Font size in points
-    /// * `fontweight` - Font weight (e.g., "bold", "normal")
-    /// * `fontstyle` - Font style (e.g., "italic", "normal")
-    /// * `fontfamily` - Font family (e.g., "serif", "monospace")
-    /// * `color` - Text color
-    /// * `alpha` - Transparency (0.0 to 1.0)
-    /// * `backgroundcolor` - Background color for the title
-    ///
-    /// # Examples
-    /// ```ignore
-    /// // Simple suptitle
-    /// fig.suptitle("Main Title".to_string())
-    ///     .set()?;
-    ///
-    /// // Styled suptitle
-    /// fig.suptitle("Experiment Results".to_string())
-    ///     .fontsize(16.0)
-    ///     .fontweight("bold".to_string())
-    ///     .color("darkblue".to_string())
-    ///     .set()?;
-    ///
-    /// // Positioned suptitle
-    /// fig.suptitle("Custom Position".to_string())
-    ///     .x(0.5)
-    ///     .y(0.95)
-    ///     .horizontalalignment(SuptitleHAlign::Center)
-    ///     .fontsize(14.0)
-    ///     .set()?;
-    /// ```
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.suptitle.html>
     pub fn suptitle(&self, t: String) -> SuptitleBuilder<'_> {
         SuptitleBuilder {
             figure: self,

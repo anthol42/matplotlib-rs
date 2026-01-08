@@ -85,12 +85,21 @@ impl PyYlabelBuilder {
 
 /// Set the label for the y-axis.
 ///
-/// # Examples
-/// ```ignore
-/// plt::ylabel("Voltage (V)".to_string())
-///     .fontsize(12.0)
-///     .set()?;
-/// ```
+/// # Parameters
+/// - `ylabel`: String
+/// - `labelpad`: Option<f64>
+/// - `loc`: Option<YLabelLoc> - Bottom, Center, or Top
+/// - `fontsize`: Option<f64>
+/// - `fontweight`: Option<String>
+/// - `fontstyle`: Option<String>
+/// - `fontfamily`: Option<String>
+/// - `color`: Option<String>
+/// - `rotation`: Option<f64>
+/// - `alpha`: Option<f64>
+/// - `backgroundcolor`: Option<String>
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html>
 pub fn ylabel(label: String) -> PyYlabelBuilder {
     PyYlabelBuilder::new(label)
 }

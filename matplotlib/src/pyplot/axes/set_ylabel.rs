@@ -70,40 +70,21 @@ impl<'a> SetYlabelBuilder<'a> {
 impl Axes {
     /// Set the label for the y-axis.
     ///
-    /// # Arguments
-    /// * `ylabel` - The label text (required)
+    /// # Parameters
+    /// - `ylabel`: String
+    /// - `labelpad`: Option<f64>
+    /// - `loc`: Option<YLabelLoc> - Bottom, Center, or Top
+    /// - `fontsize`: Option<f64>
+    /// - `fontweight`: Option<String>
+    /// - `fontstyle`: Option<String>
+    /// - `fontfamily`: Option<String>
+    /// - `color`: Option<String>
+    /// - `rotation`: Option<f64>
+    /// - `alpha`: Option<f64>
+    /// - `backgroundcolor`: Option<String>
     ///
-    /// Optional parameters via builder pattern:
-    /// * `labelpad` - Spacing in points from the axis
-    /// * `loc` - Label position (YLabelLoc::Bottom, Center, or Top)
-    /// * `fontsize` - Font size in points
-    /// * `fontweight` - Font weight (e.g., "bold", "normal")
-    /// * `fontstyle` - Font style (e.g., "italic", "normal")
-    /// * `fontfamily` - Font family (e.g., "serif", "monospace")
-    /// * `color` - Text color
-    /// * `rotation` - Rotation angle in degrees
-    /// * `alpha` - Transparency (0.0 to 1.0)
-    /// * `backgroundcolor` - Background color for the label
-    ///
-    /// # Examples
-    /// ```ignore
-    /// // Simple label
-    /// axes.set_ylabel("Voltage (V)".to_string())
-    ///     .set()?;
-    ///
-    /// // Styled label
-    /// axes.set_ylabel("Pressure (kPa)".to_string())
-    ///     .fontsize(14.0)
-    ///     .fontweight("bold".to_string())
-    ///     .color("red".to_string())
-    ///     .set()?;
-    ///
-    /// // Positioned label
-    /// axes.set_ylabel("Y Axis".to_string())
-    ///     .loc(YLabelLoc::Top)
-    ///     .fontsize(12.0)
-    ///     .set()?;
-    /// ```
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_ylabel.html>
     pub fn set_ylabel(&self, ylabel: String) -> SetYlabelBuilder<'_> {
         SetYlabelBuilder {
             axes: self,

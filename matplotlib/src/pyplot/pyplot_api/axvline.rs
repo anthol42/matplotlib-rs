@@ -45,6 +45,21 @@ impl PyAxvlineBuilder {
     }
 }
 
+/// Add a vertical line across the axes.
+///
+/// # Parameters
+/// - `x`: f64
+/// - `ymin`: Option<f64>
+/// - `ymax`: Option<f64>
+/// - `color`: Option<String>
+/// - `linewidth`: Option<f64>
+/// - `linestyle`: Option<String>
+/// - `alpha`: Option<f64>
+/// - `label`: Option<String>
+/// - `zorder`: Option<i32>
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.axvline.html>
 pub fn axvline(x: f64) -> PyAxvlineBuilder {
     PyAxvlineBuilder::new(x)
 }

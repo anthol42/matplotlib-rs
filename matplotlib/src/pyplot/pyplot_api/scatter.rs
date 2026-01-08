@@ -147,16 +147,26 @@ impl PyScatterBuilder {
     }
 }
 
-/// Create a scatter plot.
+/// Create a scatter plot of y vs x with varying marker size and/or color.
 ///
-/// # Examples
-/// ```ignore
-/// plt::scatter(x, y)
-///     .s(50.0)
-///     .c("red")
-///     .alpha(0.5)
-///     .set()?;
-/// ```
+/// # Parameters
+/// - `x`: Array1<f64>
+/// - `y`: Array1<f64>
+/// - `s`: Option<ScatterSize> - Marker size (scalar or array)
+/// - `c`: Option<ScatterColor> - Marker color (string, values array, or RGB/RGBA array)
+/// - `marker`: Option<String>
+/// - `alpha`: Option<f64>
+/// - `edgecolors`: Option<String>
+/// - `linewidths`: Option<f64>
+/// - `cmap`: Option<String>
+/// - `vmin`: Option<f64>
+/// - `vmax`: Option<f64>
+/// - `label`: Option<String>
+/// - `zorder`: Option<i32>
+/// - `rasterized`: Option<bool>
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html>
 pub fn scatter(x: Array1<f64>, y: Array1<f64>) -> PyScatterBuilder {
     PyScatterBuilder::new(x, y)
 }

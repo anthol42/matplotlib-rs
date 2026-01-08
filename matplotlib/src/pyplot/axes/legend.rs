@@ -152,69 +152,29 @@ impl<'a> LegendBuilder<'a> {
 impl Axes {
     /// Place a legend on the Axes.
     ///
-    /// The legend is automatically constructed from labeled plot elements (those with a `label` parameter).
-    /// All parameters are optional.
+    /// # Parameters
+    /// - `loc`: Option<LegendLoc> - Location of legend
+    /// - `bbox_to_anchor`: Option<(f64, f64)> - Bounding box anchor
+    /// - `fontsize`: Option<f64>
+    /// - `labelcolor`: Option<String>
+    /// - `title`: Option<String>
+    /// - `title_fontsize`: Option<f64>
+    /// - `alignment`: Option<LegendAlignment> - Text alignment
+    /// - `ncols`: Option<i32>
+    /// - `labelspacing`: Option<f64>
+    /// - `borderpad`: Option<f64>
+    /// - `handlelength`: Option<f64>
+    /// - `columnspacing`: Option<f64>
+    /// - `markerscale`: Option<f64>
+    /// - `frameon`: Option<bool>
+    /// - `fancybox`: Option<bool>
+    /// - `shadow`: Option<bool>
+    /// - `framealpha`: Option<f64>
+    /// - `facecolor`: Option<String>
+    /// - `edgecolor`: Option<String>
     ///
-    /// # Optional Parameters via Builder Pattern
-    ///
-    /// **Location & Positioning:**
-    /// * `loc` - Legend location (LegendLoc::Best, UpperLeft, UpperRight, etc.)
-    /// * `bbox_to_anchor` - Bounding box anchor as (x, y) tuple for custom positioning
-    ///
-    /// **Text & Font:**
-    /// * `fontsize` - Font size in points
-    /// * `labelcolor` - Color of legend text
-    /// * `title` - Legend title text
-    /// * `title_fontsize` - Title font size in points
-    /// * `alignment` - Text alignment (LegendAlignment::Center, Left, or Right)
-    ///
-    /// **Layout & Spacing:**
-    /// * `ncols` - Number of columns (default: 1)
-    /// * `labelspacing` - Vertical space between entries (in font-size units)
-    /// * `borderpad` - Whitespace inside legend border (in font-size units)
-    /// * `handlelength` - Length of legend handles (in font-size units)
-    /// * `columnspacing` - Spacing between columns (in font-size units)
-    ///
-    /// **Markers:**
-    /// * `markerscale` - Relative size of legend markers (default: 1.0)
-    ///
-    /// **Appearance:**
-    /// * `frameon` - Draw frame around legend (default: true)
-    /// * `fancybox` - Enable rounded edges (default: true)
-    /// * `shadow` - Draw shadow behind legend
-    /// * `framealpha` - Background transparency (0.0 to 1.0, default: 0.8)
-    /// * `facecolor` - Background color
-    /// * `edgecolor` - Border color
-    ///
-    /// # Examples
-    /// ```ignore
-    /// // Simple legend (automatic from labeled elements)
-    /// axes.legend()
-    ///     .set()?;
-    ///
-    /// // Positioned legend with styling
-    /// axes.legend()
-    ///     .loc(LegendLoc::UpperRight)
-    ///     .fontsize(10.0)
-    ///     .framealpha(0.9)
-    ///     .set()?;
-    ///
-    /// // Multi-column legend with custom positioning
-    /// axes.legend()
-    ///     .ncols(2)
-    ///     .bbox_to_anchor((1.05, 1.0))
-    ///     .borderpad(1.0)
-    ///     .set()?;
-    ///
-    /// // Styled legend with title
-    /// axes.legend()
-    ///     .title("Legend Title".to_string())
-    ///     .title_fontsize(12.0)
-    ///     .facecolor("lightyellow".to_string())
-    ///     .edgecolor("black".to_string())
-    ///     .shadow(true)
-    ///     .set()?;
-    /// ```
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.legend.html>
     pub fn legend(&self) -> LegendBuilder<'_> {
         LegendBuilder {
             axes: self,

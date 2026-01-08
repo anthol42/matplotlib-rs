@@ -45,6 +45,16 @@ impl PyTightLayoutBuilder {
     }
 }
 
+/// Adjust the padding between and around subplots.
+///
+/// # Parameters
+/// - `pad`: Option<f64>
+/// - `h_pad`: Option<f64>
+/// - `w_pad`: Option<f64>
+/// - `rect`: Option<(f64, f64, f64, f64)> - (left, bottom, right, top)
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html>
 pub fn tight_layout() -> PyTightLayoutBuilder {
     PyTightLayoutBuilder::new()
 }

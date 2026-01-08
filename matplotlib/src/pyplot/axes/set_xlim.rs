@@ -28,36 +28,13 @@ impl<'a> SetXlimBuilder<'a> {
 impl Axes {
     /// Set the x-axis view limits.
     ///
-    /// # Arguments
-    /// All parameters are optional and can be set using the builder pattern:
-    /// * `left` - The left xlim in data coordinates
-    /// * `right` - The right xlim in data coordinates
-    /// * `auto` - Whether to turn on autoscaling of the x-axis
+    /// # Parameters
+    /// - `left`: Option<f64>
+    /// - `right`: Option<f64>
+    /// - `auto`: Option<bool>
     ///
-    /// # Examples
-    /// ```ignore
-    /// // Set both limits
-    /// axes.set_xlim()
-    ///     .left(0.0)
-    ///     .right(10.0)
-    ///     .set()?;
-    ///
-    /// // Set only one limit (leave the other unchanged)
-    /// axes.set_xlim()
-    ///     .right(5.0)
-    ///     .set()?;
-    ///
-    /// // Reverse limits to flip x-axis direction
-    /// axes.set_xlim()
-    ///     .left(10.0)
-    ///     .right(0.0)
-    ///     .set()?;
-    ///
-    /// // Enable autoscaling
-    /// axes.set_xlim()
-    ///     .auto(true)
-    ///     .set()?;
-    /// ```
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_xlim.html>
     pub fn set_xlim(&self) -> SetXlimBuilder<'_> {
         SetXlimBuilder {
             axes: self,

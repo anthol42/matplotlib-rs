@@ -34,6 +34,21 @@ impl<'a> AxhlineBuilder<'a> {
 }
 
 impl Axes {
+    /// Add a horizontal line across the axes.
+    ///
+    /// # Parameters
+    /// - `y`: f64
+    /// - `xmin`: Option<f64>
+    /// - `xmax`: Option<f64>
+    /// - `color`: Option<String>
+    /// - `linewidth`: Option<f64>
+    /// - `linestyle`: Option<String>
+    /// - `alpha`: Option<f64>
+    /// - `label`: Option<String>
+    /// - `zorder`: Option<i32>
+    ///
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.axhline.html>
     pub fn axhline(&self, y: f64) -> AxhlineBuilder<'_> {
         AxhlineBuilder {
             axes: self,

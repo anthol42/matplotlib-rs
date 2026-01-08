@@ -55,6 +55,21 @@ impl SubPlotsBuilder {
 
 }
 
+/// Create a figure and a set of subplots.
+///
+/// # Parameters
+/// - `nrows`: usize
+/// - `ncols`: usize
+/// - `sharex`: Option<bool>
+/// - `sharey`: Option<bool>
+/// - `width_ratios`: Option<Vec<f64>>
+/// - `height_ratios`: Option<Vec<f64>>
+///
+/// # Returns
+/// Returns a tuple of (Figure, Array2<Axes>)
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html>
 pub fn subplots(nrows: usize, ncols: usize) -> SubPlotsBuilder {
     SubPlotsBuilder {
         nrows,

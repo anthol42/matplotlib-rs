@@ -41,33 +41,14 @@ impl<'a> TightLayoutBuilder<'a> {
 impl Figure {
     /// Adjust the padding between and around subplots.
     ///
-    /// All parameters are optional.
+    /// # Parameters
+    /// - `pad`: Option<f64>
+    /// - `h_pad`: Option<f64>
+    /// - `w_pad`: Option<f64>
+    /// - `rect`: Option<(f64, f64, f64, f64)> - (left, bottom, right, top)
     ///
-    /// # Optional Parameters via Builder Pattern
-    ///
-    /// * `pad` - Padding between figure edge and subplots (default: 1.08, as fraction of font size)
-    /// * `h_pad` - Height padding between adjacent subplots (as fraction of font size)
-    /// * `w_pad` - Width padding between adjacent subplots (as fraction of font size)
-    /// * `rect` - Rectangle (left, bottom, right, top) in normalized figure coordinates
-    ///
-    /// # Examples
-    /// ```ignore
-    /// // Simple tight layout with default padding
-    /// fig.tight_layout()
-    ///     .set()?;
-    ///
-    /// // Custom padding
-    /// fig.tight_layout()
-    ///     .pad(2.0)
-    ///     .h_pad(1.5)
-    ///     .w_pad(1.5)
-    ///     .set()?;
-    ///
-    /// // With custom rectangle
-    /// fig.tight_layout()
-    ///     .rect((0.0, 0.0, 1.0, 0.95))
-    ///     .set()?;
-    /// ```
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.tight_layout.html>
     pub fn tight_layout(&self) -> TightLayoutBuilder<'_> {
         TightLayoutBuilder {
             figure: self,

@@ -109,14 +109,17 @@ impl PyGridBuilder {
 
 /// Configure the grid lines on the current axes.
 ///
-/// # Examples
-/// ```ignore
-/// plt::grid()
-///     .color("gray".to_string())
-///     .linestyle("--".to_string())
-///     .alpha(0.5)
-///     .set()?;
-/// ```
+/// # Parameters
+/// - `visible`: Option<bool>
+/// - `which`: Option<GridWhich> - Major, Minor, or Both
+/// - `axis`: Option<GridAxis> - Both, X, or Y
+/// - `color`: Option<String>
+/// - `linestyle`: Option<String>
+/// - `linewidth`: Option<f64>
+/// - `alpha`: Option<f64>
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.grid.html>
 pub fn grid() -> PyGridBuilder {
     PyGridBuilder::new()
 }

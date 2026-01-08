@@ -85,12 +85,21 @@ impl PyXlabelBuilder {
 
 /// Set the label for the x-axis.
 ///
-/// # Examples
-/// ```ignore
-/// plt::xlabel("Time (s)".to_string())
-///     .fontsize(12.0)
-///     .set()?;
-/// ```
+/// # Parameters
+/// - `xlabel`: String
+/// - `labelpad`: Option<f64>
+/// - `loc`: Option<XLabelLoc> - Left, Center, or Right
+/// - `fontsize`: Option<f64>
+/// - `fontweight`: Option<String>
+/// - `fontstyle`: Option<String>
+/// - `fontfamily`: Option<String>
+/// - `color`: Option<String>
+/// - `rotation`: Option<f64>
+/// - `alpha`: Option<f64>
+/// - `backgroundcolor`: Option<String>
+///
+/// # See Also
+/// <https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html>
 pub fn xlabel(label: String) -> PyXlabelBuilder {
     PyXlabelBuilder::new(label)
 }

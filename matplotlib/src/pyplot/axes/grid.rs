@@ -98,41 +98,17 @@ impl<'a> GridBuilder<'a> {
 impl Axes {
     /// Configure the grid lines.
     ///
-    /// By default, the grid is made visible when this method is called.
+    /// # Parameters
+    /// - `visible`: Option<bool>
+    /// - `which`: Option<GridWhich> - Major, Minor, or Both
+    /// - `axis`: Option<GridAxis> - Both, X, or Y
+    /// - `color`: Option<String>
+    /// - `linestyle`: Option<String>
+    /// - `linewidth`: Option<f64>
+    /// - `alpha`: Option<f64>
     ///
-    /// # Arguments
-    /// All parameters are optional and can be set using the builder pattern:
-    /// * `visible` - Whether to show the grid (default: true)
-    /// * `which` - Which grid lines to show (GridWhich::Major, Minor, or Both)
-    /// * `axis` - Which axis to apply to (GridAxis::Both, X, or Y)
-    /// * `color` - Grid line color
-    /// * `linestyle` - Line style ("-", "--", "-.", ":")
-    /// * `linewidth` - Line width in points
-    /// * `alpha` - Transparency (0.0 to 1.0)
-    ///
-    /// # Examples
-    /// ```ignore
-    /// // Show major grid lines with default styling
-    /// axes.grid().set()?;
-    ///
-    /// // Customize grid appearance
-    /// axes.grid()
-    ///     .color("gray".to_string())
-    ///     .linestyle("--".to_string())
-    ///     .alpha(0.5)
-    ///     .set()?;
-    ///
-    /// // Show both major and minor grid lines on x-axis only
-    /// axes.grid()
-    ///     .which(GridWhich::Both)
-    ///     .axis(GridAxis::X)
-    ///     .set()?;
-    ///
-    /// // Hide the grid
-    /// axes.grid()
-    ///     .visible(false)
-    ///     .set()?;
-    /// ```
+    /// # See Also
+    /// <https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.grid.html>
     pub fn grid(&self) -> GridBuilder<'_> {
         GridBuilder {
             axes: self,
